@@ -1,0 +1,14 @@
+html, body{
+    background-color: #21232A;
+    color:white;
+    font-family: Helvetica, Arial,  sans-serif;
+    font-size: 1.3rem;
+}
+button{
+background-color: red;
+color: wheat;
+border-radius: 5px;
+padding: 5px 8px;
+font-weight: 800;
+margin-right: 5px;
+}
