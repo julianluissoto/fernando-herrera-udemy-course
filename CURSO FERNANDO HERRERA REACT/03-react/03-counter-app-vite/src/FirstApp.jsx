@@ -11,12 +11,11 @@ import PropTypes from "prop-types";
 const FirstApp = ({ title, subtitle, number, name }) => {
   return (
     <>
-      <h1>{title}</h1>
+      <h1 data-testid ='test-title'>{title}</h1>
       {/* <code>{JSON.stringify(valueObject)}</code> */}
       {/*  <h2>{funtionalValue()}</h2> */}
       <h2>{subtitle}</h2>
-      <h3>{number}</h3>
-      <h3>{name}</h3>
+     
     </>
   );
 };
@@ -30,6 +29,6 @@ FirstApp.propTypes = {
 };
 
 FirstApp.defaultProps= {
-title:"name by deafult props" , //if title is not pass by props it will use default prop
+title:"name by default props" , //if title is not pass by props it will use default prop
 name: "julian soto"
 }
