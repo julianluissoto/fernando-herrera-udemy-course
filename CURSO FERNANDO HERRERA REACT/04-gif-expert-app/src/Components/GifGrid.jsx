@@ -2,13 +2,13 @@ import { useFetchGifs } from "../hooks/useFetchGifs";
 
 import GifItem from "./GifItem";
 
-const GifGrid = ({ category }) => {
+export const GifGrid = ({ category }) => {
   const { images, isLoading } = useFetchGifs(category);
   console.log(isLoading);
   return (
     <div className="card-grid">
       {isLoading ? (
-        <h1>loading</h1>
+        <h2>loading</h2>
       ) : (
         images.map((image) => (
           <GifItem key={image.id} {...image} /> // where there to
@@ -18,5 +18,3 @@ const GifGrid = ({ category }) => {
     </div>
   );
 };
-
-export default GifGrid;
