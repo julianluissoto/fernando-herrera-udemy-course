@@ -1,4 +1,4 @@
-import useForm from "../useForm";
+import useForm from "../Hooks/useForm";
 
 const FormWitchCustomHook = () => {
   const { formState, onInputChange, onResetForm } = useForm({

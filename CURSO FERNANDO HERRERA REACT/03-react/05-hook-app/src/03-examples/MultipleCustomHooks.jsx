@@ -1,26 +1,36 @@
 import React from "react";
-import useFetch from "../Hooks/useFetch";
 
+import { useCounter, useFetch } from "../Hooks"; //using a barrel we avoid to call multiple hooks from same folder
+import { LoadingQuote } from "./LoadingQuote";
+import Quote from "./Quote";
 const MultipleCustomHooks = () => {
-  const { data, isLoading, hasError } = useFetch(
-    "https://api.breakingbadquotes.xyz/v1/quotes/1"
-  );
+  const { counter, increment, decrement } = useCounter(1);
 
+  const { data, isLoading, hasError, getBreakingFecth } = useFetch(
+    `https://api.breakingbadquotes.xyz/v1/quotes/${counter}`
+  );
+  // console.log(counter);
   return (
     <>
       <h1>Breaking Bad quotes</h1>
       <hr />
 
-      {isLoading ? (
-        <h3 className="alert alert-info" text-center>
-          Loading...please wait
-        </h3>
-      ) : (
-        <blockquote className="blockquote text-end">
-          <p className="mb-1">{data[0].quote}</p>
-          <footer className="blockquote-footer mt-1">{data[0].author}</footer>
-        </blockquote>
-      )}
+      {isLoading ? <LoadingQuote /> : <Quote data={data} />}
+
+      <button
+        onClick={() => decrement()}
+        disabled={isLoading || counter === 1}
+        className="btn btn-primary"
+      >
+        Prev
+      </button>
+      <button
+        onClick={() => increment()}
+        disabled={isLoading}
+        className="btn btn-primary"
+      >
+        Next
+      </button>
     </>
   );
 };
