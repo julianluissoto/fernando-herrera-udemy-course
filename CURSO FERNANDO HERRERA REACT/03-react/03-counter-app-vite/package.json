@@ -9,9 +9,6 @@
     "preview": "vite preview",
     "test": "jest --watchAll"
   },
-  "jest": {
-    "testEnvironment": "jsdom"
-  },
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
